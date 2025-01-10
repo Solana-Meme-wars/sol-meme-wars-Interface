@@ -1,7 +1,7 @@
 import {  useParams } from 'react-router-dom'
-import { Section1 } from '../Sections/UserProfileSections/Section1'
-import { Section2 } from '../Sections/UserProfileSections/Section2'
-import { Section3 } from '../Sections/UserProfileSections/Section3' 
+import { Section1 } from '../ScreenSections/UserProfileSections/Section1'
+import { Section2 } from '../ScreenSections/UserProfileSections/Section2'
+import { Section3 } from '../ScreenSections/UserProfileSections/Section3' 
 import {AnimatePresence, motion} from 'framer-motion'
 import { useSelector } from 'react-redux'
 

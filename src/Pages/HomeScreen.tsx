@@ -5,9 +5,9 @@
 // import { Compress } from "../assets/icons/Compress"
 // import { Spl20 } from "../assets/icons/Spl20"
 // import { NewNftCard } from '../components/common/NewNftCard'
-import { LeftSection } from '../Sections/HomeScreenSections/LeftSection'
-import { MidSection } from '../Sections/HomeScreenSections/MidSection'
-import { RightSection } from '../Sections/HomeScreenSections/RightSection'
+import { LeftSection } from '../ScreenSections/HomeScreenSections/LeftSection'
+import { MidSection } from '../ScreenSections/HomeScreenSections/MidSection'
+import { RightSection } from '../ScreenSections/HomeScreenSections/RightSection'
 
 export const Home = ()=>{
   return  <div className="flex h-screen overflow-hidden w-full">

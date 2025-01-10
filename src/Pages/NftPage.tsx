@@ -1,9 +1,9 @@
 import {  useParams } from 'react-router-dom'
 import { dummyNftData } from '../data/dummyData'
-import { Section1 } from '../Sections/NftPageSections/Section1'
+import { Section1 } from '../ScreenSections/NftPageSections/Section1'
 import { motion } from 'framer-motion'
-import { Section2 } from '../Sections/NftPageSections/Section2'
-import { Section3 } from '../Sections/NftPageSections/Section3'
+import { Section2 } from '../ScreenSections/NftPageSections/Section2'
+import { Section3 } from '../ScreenSections/NftPageSections/Section3'
 import { useSelector } from 'react-redux'
 import { RootState } from '../Redux/store'
 
