@@ -50,4 +50,3 @@ export default tseslint.config({
 ```
 # solana-meme-wars-client-work-
 # sol-meme-war-main
-# sol-meme-wars-Interface

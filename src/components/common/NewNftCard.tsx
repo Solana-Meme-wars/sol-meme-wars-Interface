@@ -5,25 +5,26 @@ import { Link } from "react-router-dom";
 
 interface NftProps {
   name: string,
-  spread: number,
   img: string,
-  buy: number,
-  sell: number,
-  listed: number,
-  listedpercent: number,
-  Mcap: string,
-  vol24h: string
   owner: string,
+  spread?: number,
+  buy?: number,
+  sell?: number,
+  listed?: number,
+  listedpercent?: number,
+  Mcap?: string,
+  vol24h?: string
 }
 
-export const NewNftCard = ({ name,owner, spread, img, buy, sell, listed, listedpercent, Mcap, vol24h }: NftProps) => { 
+export const NewNftCard = ({ name,owner, spread=42, img, buy=54, sell=23, listed=45, listedpercent=12, Mcap='34', vol24h='11' }: NftProps) => { 
   console.log(vol24h, buy, sell, spread,listed);
+  console.log("name...",name.split(' ').length);
   
   
   return <div>
-    <div className="   nft-card w-full bg-[#101111] bordder border-[#101111] rounded-xl pr-[1.5px] ">
+    <div className=" nft-card w-full bg-[#101111] bordder border-[#101111] rounded-xl pr-[1.5px] ">
       <Link
-      to={`/nft/${name.split(' ')[0].toLowerCase()}-${name.split(' ')[1].toLowerCase()}`}
+      to={ name.split(' ').length>1 ?`/nft/${name?.split(' ')[0]?.toLowerCase()}-${name?.split(' ')[1]?.toLowerCase()}`:`/nft/${name.toLowerCase()}`}
       >
       <div className=" -mt-16 flex">
         <div className=" nft-card-img rounded-xl  p-[1.7px]"> 
@@ -41,7 +42,7 @@ export const NewNftCard = ({ name,owner, spread, img, buy, sell, listed, listedp
               <div className=" flex items-center gap-1">
               <OwnerNameSvg className=""/>
               {/* <Link to={"/profile/alex-jane"}> */}
-              <p className=" font-cpmono-heading text-xs text-gray-500 cursor-pointer capitalize">{owner}</p>
+              <p className=" font-cpmono-heading text-xs text-gray-500 cursor-pointer capitalize truncate w-32 ">{owner}</p>
               {/* </Link> */}
               </div>
             </div>

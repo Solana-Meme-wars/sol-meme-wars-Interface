@@ -3,15 +3,19 @@ import { Home } from "../Pages/HomeScreen";
 import { Navbar } from "../components/common/Navbar";
 import { UserProfile } from "../Pages/UserProfile";
 import { NftPage } from "../Pages/NftPage";
+import { AuthScreen } from "../Pages/AuthScreen";
 
 export const PublicRoutes = ()=>{
+  
   return <div>
-    <Navbar/>
    <Router>
+    <Navbar/>
   <Routes>
     <Route index element={<Home/>} />
     <Route path="/profile/:userName" element={<UserProfile/>} />
     <Route path="/nft/:nftName" element={<NftPage/>} />
+    <Route path="/signup" element={<AuthScreen signup={true}/>} />
+    <Route path="/login" element={<AuthScreen login={true} />} />
   </Routes>
  </Router>
   </div>

@@ -4,10 +4,12 @@ import { Section2 } from '../ScreenSections/UserProfileSections/Section2'
 import { Section3 } from '../ScreenSections/UserProfileSections/Section3' 
 import {AnimatePresence, motion} from 'framer-motion'
 import { useSelector } from 'react-redux'
+import { RootState } from '../Redux/store'
 
 export const UserProfile = () => {
-  const {profiles} = useSelector((state:any)=>state.dummyData) 
-  
+
+  const {profiles} = useSelector((state:RootState)=>state.dummyData) 
+
   
   const {userName} = useParams()
   console.log("user", userName);
@@ -36,5 +38,5 @@ if(!allData){
     </motion.div>
       </AnimatePresence>
   )
-}
+} 
  

@@ -4,11 +4,17 @@ import App from './App.tsx'
 import './styles/index.css'
 import { Provider } from 'react-redux'
 import store from './Redux/store.ts'
+import SolanaWalletProvider from './SolanaWalletProvider.tsx'
+import { RecoilRoot } from 'recoil'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-    <App />
+      <SolanaWalletProvider>
+        <RecoilRoot>
+          <App />
+        </RecoilRoot>
+      </SolanaWalletProvider>
     </Provider>
   </StrictMode>,
 )

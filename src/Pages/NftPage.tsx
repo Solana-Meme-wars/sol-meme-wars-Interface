@@ -1,5 +1,5 @@
 import {  useParams } from 'react-router-dom'
-import { dummyNftData } from '../data/dummyData'
+// import { dummyNftData } from '../data/dummyData'
 import { Section1 } from '../ScreenSections/NftPageSections/Section1'
 import { motion } from 'framer-motion'
 import { Section2 } from '../ScreenSections/NftPageSections/Section2'

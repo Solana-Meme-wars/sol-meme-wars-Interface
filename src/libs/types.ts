@@ -1,13 +1,17 @@
-type dummyNftType = {
-  name: string;
-  owner: string;
+interface dummyNftType {
+  metadata:{
+    name: string;
+    symbol: string;
+    owner:string,
+  }
+  creator:string;
   spread: number;
-  img: string;
+  imageUrl: string;
   buy: number;
   sell: number;
   listed: number;
   listedpercent: number;
-  Mcap: string;
+  mcap: string;
   vol24h: string;
 };
 
@@ -97,6 +101,55 @@ type dummyUserProfilesProps = {
 }
 }
 
+interface userProfilesProps { 
+  userName:string,
+  banner:string,
+  profilePic:string,
+  joined:string,
+  trendingNftDetails:{
+    nftName:string,
+    img:string,
+    listners:string,
+    mcap:string,
+    supply:string,
+    mints:string
+  },
+  addressDetails:{
+    name:string,
+    value:string
+  }[],
+  allNFts:{
+    name: string,
+    img: string,
+    supply: string,
+    mints: string,
+    mintPercent: string,
+    mcap: string,
+    mcapUp: string,
+    mcapDown: string,
+    listeners: string,
+    listenersUp: string,
+    listenersDown: string,
+    priceUp: string,
+    priceDown: string,
+  }[],
+  buyNFts:{
+    name: string,
+    img: string,
+    supply: string,
+    mints: string,
+    mintPercent: string,
+    mcap: string,
+    mcapUp: string,
+    mcapDown: string,
+    listeners: string,
+    listenersUp: string,
+    listenersDown: string,
+    priceUp: string,
+    priceDown: string,
+  }[]
+} 
+
 
 type  dummyNftDataProps = {
   [key: string]:
@@ -130,4 +183,4 @@ type  dummyNftDataProps = {
 }
 }
 
-export type { dummyNftType,dummyVisitedNftType,dummyHotNftType,dummyTrendingNftType,dummyRecentNftType,dummyUserProfilesProps,dummyNftDataProps } 
+export type { dummyNftType,dummyVisitedNftType,dummyHotNftType,dummyTrendingNftType,dummyRecentNftType,dummyUserProfilesProps,userProfilesProps, dummyNftDataProps,  } 

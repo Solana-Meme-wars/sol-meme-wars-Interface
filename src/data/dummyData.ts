@@ -3,39 +3,51 @@ import { dummyHotNftType, dummyNftDataProps, dummyNftType, dummyRecentNftType, d
  
 export const dummyNft:dummyNftType[] = [
   {
-    name: "Pepe Swag",
-    owner:"Alex Smith",
+    metadata:{
+      name: "Pepe Swag",
+      symbol:"PSP",
+      owner:"Alex Smith",
+    },
+    creator:'',
     spread: 5.72,
-    img: "https://prod-image-cdn.tensor.trade/images/90x90/freeze=true/https%3A%2F%2Fprod-tensor-creators-s3.s3.us-east-1.amazonaws.com%2Fimage-25bd6823-287f-41c3-b936-20242a3e149b",
+    imageUrl: "https://prod-image-cdn.tensor.trade/images/90x90/freeze=true/https%3A%2F%2Fprod-tensor-creators-s3.s3.us-east-1.amazonaws.com%2Fimage-25bd6823-287f-41c3-b936-20242a3e149b",
     buy: 1.13,
     sell: 1.06,
     listed: 1348,
     listedpercent: 24,
-    Mcap: "6,164",
+    mcap: "6,164",
     vol24h: "3,566"
   },
   {
-    name: "Crypto Fox",
-    owner:"Ethan Hunt",
+    metadata:{
+      name: "Crypto Fox",
+      symbol:"CRYPT",
+      owner:"Ethan Hunt",
+    },
+    creator:'',
     spread: 3.40,
-    img: "https%3A%2F%2Fi.imgur.com%2FbMH6qNc.png",
+    imageUrl: "https%3A%2F%2Fi.imgur.com%2FbMH6qNc.png",
     buy: 18.73,
     sell: 18.20,
     listed: 8,
     listedpercent: 24,
-    Mcap: "92,272",
+    mcap: "92,272",
     vol24h: "1,703"
   },
   {
-    name: "Pixel Dragon",
-    owner:"Liam Nelson",
+    metadata:{
+      name: "Pixel Dragon",
+      symbol:"PXL",
+      owner:"Liam Nelson",
+    },
+    creator:'',
     spread: 4.89,
-    img: "https%3A%2F%2Fprod-tensor-creators-s3.s3.us-east-1.amazonaws.com%2Fimage%2F950e7eef-4da1-47b7-9dd9-507375b9e741",
+    imageUrl: "https%3A%2F%2Fprod-tensor-creators-s3.s3.us-east-1.amazonaws.com%2Fimage%2F950e7eef-4da1-47b7-9dd9-507375b9e741",
     buy: 10.45,
     sell: 9.95,
     listed: 900,
     listedpercent: 15,
-    Mcap: "45,345",
+    mcap: "45,345",
     vol24h: "6,789"
   },
   // {
@@ -801,6 +813,65 @@ export const dummyNftData:dummyNftDataProps = {
     nftImage:
       "https://prod-image-cdn.tensor.trade/images/90x90/freeze=true/https%3A%2F%2Fprod-tensor-creators-s3.s3.us-east-1.amazonaws.com%2Fimage%2F950e7eef-4da1-47b7-9dd9-507375b9e741",
     currentOwner: "Liam Nelson",
+    creator: "Olivia Brooks",
+    joined: "2021",
+    nftDetails: {
+      buy: "10.50",
+      sell: "5.25",
+      listners: "3,800",
+      mcap: "75",
+      supply: "120",
+      mints: "100",
+    },
+    addressDetails: [
+      {
+        name: "Mint address",
+        value: "as9df8as0df9as8df0asd8f0a9sd8f0as",
+      },
+      {
+        name: "Donation address",
+        value: "sd8f0as8df0asd8f0a9sd8f0asd8f09as",
+      },
+      {
+        name: "Token address",
+        value: "s8df0asd8f09asd8f0as8df0asd8f0as",
+      },
+      {
+        name: "Total NFTs minted",
+        value: "200",
+      },
+      {
+        name: "Total supplies",
+        value: "400",
+      },
+    ],
+    comments: [
+      {
+        name: "Chris Walker",
+        img: "/images/chris-avatar.png",
+        comment: "Pixel Dragon is one of the best NFTs out there!",
+        date: "18th Dec 2021",
+        likes: "40",
+        dislikes: "2",
+        replies: "10",
+      },
+      {
+        name: "Sophia Lane",
+        img: "/images/sophia-avatar.png",
+        comment: "Amazing artwork, totally worth it!",
+        date: "19th Dec 2021",
+        likes: "50",
+        dislikes: "0",
+        replies: "12",
+      },
+    ],
+  },
+  "bulbasaur": {
+    nftName: "Bulbasaur",
+    banner: "/images/banner-nft3.png",
+    nftImage:
+      "https://prod-image-cdn.tensor.trade/images/90x90/freeze=true/https://arweave.net/31l6YPPbXN7JBlii4Z0UL-U9APJeyJS3v23uuKg85Cc",
+    currentOwner: "Alex Smith",
     creator: "Olivia Brooks",
     joined: "2021",
     nftDetails: {

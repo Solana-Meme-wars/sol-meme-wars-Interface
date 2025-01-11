@@ -1,8 +1,7 @@
 // slices/userProfilesSlice.js
-import { createSlice } from '@reduxjs/toolkit';
-import { dummyHotNft, dummyNft, dummyNftData, dummyRecentNft, dummyTrendingNft, dummyUserProfiles, dummyVisitedNft } from '../../data/dummyData';
-import { dummyHotNftType, dummyNftDataProps, dummyNftType, dummyRecentNftType, dummyTrendingNftType, dummyUserProfilesProps, dummyVisitedNftType } from '../../libs/types';
-
+import { createSlice } from '@reduxjs/toolkit'; 
+import { dummyHotNftType, dummyNftDataProps, dummyNftType, dummyRecentNftType, dummyTrendingNftType, dummyUserProfilesProps, dummyVisitedNftType } from '../../libs/types'; 
+ 
 export type InitialStateType = {
   profiles: dummyUserProfilesProps,
   nfts: dummyNftType[],
@@ -11,16 +10,16 @@ export type InitialStateType = {
   trendingNft:dummyTrendingNftType[],
   recentNft:dummyRecentNftType[],
   nftData: dummyNftDataProps,
-}
+} 
 
 const initialState:InitialStateType = {
-  profiles: dummyUserProfiles, // Store the dummy data here
-  nfts: dummyNft,
-  visitedNft : dummyVisitedNft,
-  hotNfts: dummyHotNft,
-  trendingNft:dummyTrendingNft  ,
-  recentNft: dummyRecentNft,
-  nftData:dummyNftData,
+  profiles: {}, // Store the dummy data here
+  nfts: [],
+  visitedNft : [],
+  hotNfts: [],
+  trendingNft:[]  ,
+  recentNft: [],
+  nftData:{},
 };
 
 const dymmyDataSlice = createSlice({
@@ -30,8 +29,26 @@ const dymmyDataSlice = createSlice({
     setProfiles(state, action) {
       state.profiles = action.payload;
     },
+    setNfts(state, action) {
+      state.nfts = action.payload;
+    },
+    setVisitedNft(state, action) {
+      state.visitedNft = action.payload;
+    },
+    setHotNfts(state, action) {
+      state.hotNfts = action.payload;
+    },
+    setTrendingNft(state, action) {
+      state.trendingNft = action.payload;
+    },
+    setRecentNfts(state, action) {
+      state.recentNft = action.payload;
+    },
+    setNftData(state, action) {
+      state.nftData = action.payload;
+    },
   },
 });
 
-export const { setProfiles } = dymmyDataSlice.actions;
+export const { setProfiles,  setNfts, setVisitedNft, setHotNfts,  setTrendingNft, setRecentNfts, setNftData } = dymmyDataSlice.actions;
 export default dymmyDataSlice.reducer;
