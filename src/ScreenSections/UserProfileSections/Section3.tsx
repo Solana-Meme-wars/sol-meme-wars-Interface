@@ -1,27 +1,24 @@
 import { ArrowDown, ArrowUp } from 'lucide-react'
 import  { useState } from 'react'
 
-
-// example json for nftCardList
-const details = {
-  img:"https://prod-image-cdn.tensor.trade/images/90x90/freeze=false/https%3A%2F%2Fprod-tensor-creators-s3.s3.us-east-1.amazonaws.com%2Fimage%2F8dd340c5-ab25-4106-9d43-b4aec2ff9485",
-  name:"Fragma",
-  supply:"21",
-  mints:"24",
-  mintPercent:"0.37",
-  mcap:"122",
-  mcapUp:"2.37",
-  mcapDown:"0.15",
-  listeners:"20",
-  listenersUp:"10",
-  listenersDown:"8",
-  priceUp:"6.45",
-  priceDown:"2.73",
+ 
+type NftCardListProps = {
+  name: string,
+  img: string,
+  supply: string,
+  mints: string,
+  mintPercent: string,
+  mcap: string,
+  mcapUp: string,
+  mcapDown: string,
+  listeners: string,
+  listenersUp: string,
+  listenersDown: string,
+  priceUp: string,
+  priceDown: string,
 }
 
-type NftCardListProps = typeof details
-
-export const Section3 = ({allNftDetails,buyNftDetails}:{allNftDetails:NftCardListProps[], buyNftDetails:NftCardListProps[]}) => {
+export const Section3 = ({allNftDetails,buyNftDetails}:{allNftDetails:NftCardListProps[] | undefined, buyNftDetails:NftCardListProps[] | undefined}) => {
   
   const [allNftTab, setAllNftTab] = useState(true)
   return (
@@ -34,9 +31,9 @@ export const Section3 = ({allNftDetails,buyNftDetails}:{allNftDetails:NftCardLis
         </div>
         <div className=' px-4 py-3 '>
           <div className=' p-2 space-y-5'>
-           { allNftTab && allNftDetails.map((allNft:NftCardListProps)=><NftCardList {...allNft} />)} 
+           { allNftTab && allNftDetails?.map((allNft:NftCardListProps)=><NftCardList {...allNft} />)} 
 
-           { !allNftTab && buyNftDetails.map(buyNft=><NftCardList {...buyNft} />)} 
+           { !allNftTab && buyNftDetails?.map(buyNft=><NftCardList {...buyNft} />)} 
           </div>
         </div>
       </div> 

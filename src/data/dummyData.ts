@@ -1,42 +1,66 @@
-import { dummyHotNftType, dummyNftDataProps, dummyNftType, dummyRecentNftType, dummyTrendingNftType, dummyUserProfilesProps, dummyVisitedNftType } from "../libs/types";
+import { dummyHotNftType, dummyNftDataProps, dummyNftToPostType, dummyNftType, dummyRecentNftType, dummyTrendingNftType, dummyUserProfilesProps, dummyVisitedNftType } from "../libs/types";
 
  
 export const dummyNft:dummyNftType[] = [
   {
-    name: "Pepe Swag",
-    owner:"Alex Smith",
+    id:1,
+    metadata: {
+      name: "Pepe Swag",
+      symbol: "PSP",
+      owner: "Alex Smith",
+    },
+    nftMint:"",
+    creator: '',
     spread: 5.72,
-    img: "https://prod-image-cdn.tensor.trade/images/90x90/freeze=true/https%3A%2F%2Fprod-tensor-creators-s3.s3.us-east-1.amazonaws.com%2Fimage-25bd6823-287f-41c3-b936-20242a3e149b",
+    imageUrl: "https://prod-image-cdn.tensor.trade/images/90x90/freeze=true/https%3A%2F%2Fprod-tensor-creators-s3.s3.us-east-1.amazonaws.com%2Fimage-25bd6823-287f-41c3-b936-20242a3e149b",
     buy: 1.13,
     sell: 1.06,
     listed: 1348,
     listedpercent: 24,
-    Mcap: "6,164",
-    vol24h: "3,566"
+    mcap: "6,164",
+    vol24h: "3,566",
+    upvotes: 0,
+    downvotes: 0,
   },
   {
-    name: "Crypto Fox",
-    owner:"Ethan Hunt",
+    id:2,
+    metadata: {
+      name: "Crypto Fox",
+      symbol: "CRYPT",
+      owner: "Ethan Hunt",
+    },
+    nftMint:"",
+    creator: '',
     spread: 3.40,
-    img: "https%3A%2F%2Fi.imgur.com%2FbMH6qNc.png",
+    imageUrl: "https%3A%2F%2Fi.imgur.com%2FbMH6qNc.png",
     buy: 18.73,
     sell: 18.20,
     listed: 8,
     listedpercent: 24,
-    Mcap: "92,272",
-    vol24h: "1,703"
+    mcap: "92,272",
+    vol24h: "1,703",
+    upvotes: 0,
+    downvotes: 0,
   },
   {
-    name: "Pixel Dragon",
-    owner:"Liam Nelson",
+    id:3,
+    metadata: {
+      name: "Pixel Dragon",
+      symbol: "PXL",
+      owner: "Liam Nelson",
+    },
+    nftMint:"",
+    creator: '',
     spread: 4.89,
-    img: "https%3A%2F%2Fprod-tensor-creators-s3.s3.us-east-1.amazonaws.com%2Fimage%2F950e7eef-4da1-47b7-9dd9-507375b9e741",
+    imageUrl: "https%3A%2F%2Fprod-tensor-creators-s3.s3.us-east-1.amazonaws.com%2Fimage%2F950e7eef-4da1-47b7-9dd9-507375b9e741",
     buy: 10.45,
     sell: 9.95,
     listed: 900,
     listedpercent: 15,
-    Mcap: "45,345",
-    vol24h: "6,789"
+    mcap: "45,345",
+    vol24h: "6,789",
+    upvotes: 0,
+    downvotes: 0,
   },
   // {
   //   name: "Monkey Business",
@@ -94,7 +118,7 @@ export const dummyNft:dummyNftType[] = [
   //   vol24h: "2,500"
   // }
 ];
- 
+   
 
 export const dummyVisitedNft :dummyVisitedNftType[] = [
   {
@@ -182,7 +206,7 @@ export const dummyTrendingNft:dummyTrendingNftType[] = [
   },
   {
     name: "Pixel Panda",
-    owner: "Alice Cooper",
+    owner: "Alice paul",
     img: "https://prod-image-cdn.tensor.trade/images/90x90/freeze=false/https%3A%2F%2Fmedia.cdn.magiceden.dev%2Flaunchpad%2Fafel%2F45f246ec-a78a-4599-a116-8edb15edac61",
     mcap: "15",
     listed: "2.34",
@@ -245,13 +269,54 @@ export const dummyRecentNft: dummyRecentNftType[] = [
   
 ];
  
+ 
+export const dummyNftToPost: dummyNftToPostType[] = [
+  {
+    name: "Zero Monka", 
+     symbol:"ZMDK",
+     mintAddress:"",
+    uri: "https://arweave.net/0Yj6QO-_5Zpdj7ZGgIhGgckUEdOsXXFhTC3tMN-45BY",
+
+  },
+  {
+    name: "Boryoku Panda", 
+     symbol:"BDAK",
+     mintAddress:"",
+    uri: "https://prod-image-cdn.tensor.trade/images/90x90/freeze=false/https%3A%2F%2Fboryokudragonz.io%2Fdragonz-ani.gif",
+  
+  },
+  {
+    name: "namaste",  
+     symbol:"NMST",
+     mintAddress:"",
+    uri: "https://prod-image-cdn.tensor.trade/images/90x90/freeze=false/https%3A%2F%2Fprod-tensor-creators-s3.s3.us-east-1.amazonaws.com%2Fimage-670bcf8d-fc83-43e6-9b6e-ceaeaebe7a86",
+
+  },
+  {
+    name: "Meetbags", 
+     symbol:"MTBG",
+     mintAddress:"",
+    uri: "https://prod-image-cdn.tensor.trade/images/90x90/freeze=false/https%3A%2F%2Fprod-tensor-creators-s3.s3.us-east-1.amazonaws.com%2Fimage%2Fb21f63b7-eddf-4910-b9fc-ce0b573a5af9",
+
+  },
+  {
+    name: "Crypto Koi", 
+     symbol:"CKI",
+     mintAddress:"",
+    uri: "https://prod-image-cdn.tensor.trade/images/90x90/freeze=false/https%3A%2F%2Farweave.net%2Fur-eoO--XdlbEui8-O-8DehYNQsmrmfiq8n1XpWrtbI%3Fext%3Djpg",
+
+  },
+  
+];
+ 
 
 export const dummyUserProfiles:dummyUserProfilesProps = {
+  //@ts-ignore
    "alex-smith" : {
-    userName:"alex smith",
+    username:"alex smith",
     banner:"/profile baners/alex-baner.png",
-    profilePic:"/profile images/alex.png",
-    joined:"2023",
+    profileImage:"/profile images/alex.png",
+    createdAt:"2023",
     trendingNftDetails:{
       nftName:"pepe swag",
       img:"https://prod-image-cdn.tensor.trade/images/90x90/freeze=true/https://prod-image-cdn.tensor.trade/images/90x90/freeze=true/https%3A%2F%2Fprod-tensor-creators-s3.s3.us-east-1.amazonaws.com%2Fimage-25bd6823-287f-41c3-b936-20242a3e149b",
@@ -432,11 +497,12 @@ export const dummyUserProfiles:dummyUserProfilesProps = {
       },
     ]  
   },
+  //@ts-ignore
    "ethan-hunt" : {
-    userName: "Ethan Hunt",
+    username: "Ethan Hunt",
     banner: "/profile baners/ethan-baner.png",
-    profilePic: "/profile images/ethan.png",
-    joined: "2021",
+    profileImage: "/profile images/ethan.png",
+    createdAt: "2021",
     trendingNftDetails: {
       nftName: "Crypto Fox",
       img: "https://prod-image-cdn.tensor.trade/images/90x90/freeze=true/https%3A%2F%2Fi.imgur.com%2FbMH6qNc.png",
@@ -846,6 +912,124 @@ export const dummyNftData:dummyNftDataProps = {
       {
         name: "Sophia Lane",
         img: "/images/sophia-avatar.png",
+        comment: "Amazing artwork, totally worth it!",
+        date: "19th Dec 2021",
+        likes: "50",
+        dislikes: "0",
+        replies: "12",
+      },
+    ],
+  },
+  "bulbasaur": {
+    nftName: "Bulbasaur",
+    banner: "/images/banner-nft3.png",
+    nftImage:
+      "https://prod-image-cdn.tensor.trade/images/90x90/freeze=true/https://arweave.net/31l6YPPbXN7JBlii4Z0UL-U9APJeyJS3v23uuKg85Cc",
+    currentOwner: "Ethan Hunt",
+    creator: "Olivia Brooks",
+    joined: "2021",
+    nftDetails: {
+      buy: "10.50",
+      sell: "5.25",
+      listners: "3,800",
+      mcap: "75",
+      supply: "120",
+      mints: "100",
+    },
+    addressDetails: [
+      {
+        name: "Mint address",
+        value: "as9df8as0df9as8df0asd8f0a9sd8f0as",
+      },
+      {
+        name: "Donation address",
+        value: "sd8f0as8df0asd8f0a9sd8f0asd8f09as",
+      },
+      {
+        name: "Token address",
+        value: "s8df0asd8f09asd8f0as8df0asd8f0as",
+      },
+      {
+        name: "Total NFTs minted",
+        value: "200",
+      },
+      {
+        name: "Total supplies",
+        value: "400",
+      },
+    ],
+    comments: [
+      {
+        name: "Chris Walker",
+        img: "/images/sarah-avatar.png",
+        comment: "Pixel Dragon is one of the best NFTs out there!",
+        date: "18th Dec 2021",
+        likes: "40",
+        dislikes: "2",
+        replies: "10",
+      },
+      {
+        name: "Sophia Lane",
+        img: "/images/alex-avatar.png",
+        comment: "Amazing artwork, totally worth it!",
+        date: "19th Dec 2021",
+        likes: "50",
+        dislikes: "0",
+        replies: "12",
+      },
+    ],
+  },
+  "ayu-rug": {
+    nftName: "Ayu Rug",
+    banner: "/images/banner-nft2.png",
+    nftImage:
+      "https://prod-image-cdn.tensor.trade/images/90x90/freeze=true/https://arweave.net/E1AkEkxMT8Eieo8anjZwIPVCXtd1gAoVdsaeaqzWv-Q",
+    currentOwner: "Alex Smith",
+    creator: "Olivia Brooks",
+    joined: "2021",
+    nftDetails: {
+      buy: "10.50",
+      sell: "5.25",
+      listners: "3,800",
+      mcap: "75",
+      supply: "120",
+      mints: "100",
+    },
+    addressDetails: [
+      {
+        name: "Mint address",
+        value: "as9df8as0df9as8df0asd8f0a9sd8f0as",
+      },
+      {
+        name: "Donation address",
+        value: "sd8f0as8df0asd8f0a9sd8f0asd8f09as",
+      },
+      {
+        name: "Token address",
+        value: "s8df0asd8f09asd8f0as8df0asd8f0as",
+      },
+      {
+        name: "Total NFTs minted",
+        value: "200",
+      },
+      {
+        name: "Total supplies",
+        value: "400",
+      },
+    ],
+    comments: [
+      {
+        name: "Chris Walker",
+        img: "/images/sarah-avatar.png",
+        comment: "Pixel Dragon is one of the best NFTs out there!",
+        date: "18th Dec 2021",
+        likes: "40",
+        dislikes: "2",
+        replies: "10",
+      },
+      {
+        name: "Sophia Lane",
+        img: "/images/alex-avatar.png",
         comment: "Amazing artwork, totally worth it!",
         date: "19th Dec 2021",
         likes: "50",

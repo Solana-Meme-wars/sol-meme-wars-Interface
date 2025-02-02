@@ -26,7 +26,6 @@ export const LeftSection = ()=>{
       name:"Search NFT",
       icon:<SearchNftIcon className="h-6 w-6 hover:text-white hover:fill-white"/>,
     },
-
   ]
 
   

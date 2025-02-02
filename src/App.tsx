@@ -3,16 +3,22 @@ import './styles/index.css'
 import './styles/App.css' 
  
 import { PublicRoutes } from './Routes/PublicRoutes';
-import { Provider, useDispatch } from 'react-redux';
-import store from './Redux/store';
-import { useEffect } from 'react';
-import { setProfiles } from './Redux/dummyData/dummyDataSlice';
-import { dummyUserProfiles } from './data/dummyData';
+import { useDispatch } from 'react-redux';   
+import { useEffect } from 'react'; 
+import { dummyHotNft, dummyNft, dummyNftData, dummyNftToPost, dummyRecentNft, dummyTrendingNft, dummyUserProfiles, dummyVisitedNft } from './data/dummyData';
+import { setHotNfts, setNftData, setNfts, setNftToPost, setProfiles, setRecentNfts, setTrendingNft, setVisitedNft } from './Redux/dummyData/dummyDataSlice';
 function App() { 
 
   const dispatch = useDispatch()
   useEffect(()=>{
-    // dispatch(setProfiles(dummyUserProfiles))
+    dispatch(setNfts(dummyNft))
+    dispatch(setVisitedNft(dummyVisitedNft))
+    dispatch(setHotNfts(dummyHotNft))
+    dispatch(setTrendingNft(dummyTrendingNft))
+    dispatch(setRecentNfts(dummyRecentNft))
+    dispatch(setNftData(dummyNftData))
+    dispatch(setProfiles(dummyUserProfiles))
+    dispatch(setNftToPost(dummyNftToPost))
   },[dispatch])
 
   return (
