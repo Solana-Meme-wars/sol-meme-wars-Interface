@@ -1,35 +1,45 @@
 import { MessageSquare, Triangle } from "lucide-react"
-import {ShareSvg} from '../../../public/svgs/ShareSvg'
+// import {ShareSvg} from '../../../public/svgs/ShareSvg'
 import { OwnerNameSvg } from "../../assets/icons/OwnerNameSvg";
 import { Link } from "react-router-dom";
+import { NftDataProp } from "../../libs/types";
+// import { useSelector } from "react-redux";
+// import { RootState } from "../../Redux/store";
+import { toast } from "sonner";
+import { useWallet } from "@solana/wallet-adapter-react";
+import { useState } from "react";
 
-interface NftProps {
-  name: string,
-  img: string,
-  owner: string,
-  spread?: number,
-  buy?: number,
-  sell?: number,
-  listed?: number,
-  listedpercent?: number,
-  Mcap?: string,
-  vol24h?: string
+interface NfttCardPropMain extends NftDataProp {
+  handleDownVotes:(value:number)=>void,
+  handleUpVotes:(value:number)=>void,
+  upvotedNfts: Set<number>,
+  downvotedNfts: Set<number>,
 }
 
-export const NewNftCard = ({ name,owner, spread=42, img, buy=54, sell=23, listed=45, listedpercent=12, Mcap='34', vol24h='11' }: NftProps) => { 
-  console.log(vol24h, buy, sell, spread,listed);
-  console.log("name...",name.split(' ').length);
+export const NewNftCard = ({ id,metadata, User, upvotes, downvotes, imageUrl, creator,handleDownVotes, handleUpVotes,upvotedNfts, downvotedNfts, comments }: NfttCardPropMain) => {
+  // const {nfts} = useSelector((state:RootState)=>state.nft)
+
+  // const colour = localStorage.getItem("nftColour")     
+
+  const [newUpvotes, setNewUpvotes] = useState(upvotes) 
+  const [newDownvotes, setNewDownvotes] = useState(downvotes)
+
+  const wallet = useWallet()
+  console.log(newDownvotes);
+  
+  // console.log(vol24h, buy, sell, spread,listed,listedpercent,Mcap);
+  // console.log("name...",name.split(' ').length);
+
   
   
   return <div>
-    <div className=" nft-card w-full bg-[#101111] bordder border-[#101111] rounded-xl pr-[1.5px] ">
+    <div className="  nft-card w-full bg-[#101111] bordder border-[#101111] rounded-xl pr-[1.5px] ">
       <Link
-      to={ name.split(' ').length>1 ?`/nft/${name?.split(' ')[0]?.toLowerCase()}-${name?.split(' ')[1]?.toLowerCase()}`:`/nft/${name.toLowerCase()}`}
-      >
+      to={ metadata.name.split(' ').length>1 ?`/nft/${id}-${metadata.name?.split(' ')[0]?.toLowerCase()}-${metadata.name?.split(' ')[1]?.toLowerCase()}`:`/nft/${id}-${metadata.name.toLowerCase()}`}>
       <div className=" -mt-16 flex">
         <div className=" nft-card-img rounded-xl  p-[1.7px]"> 
           <div className=" w-32 h-32 mx-aduto rounded-t-xl p-3 bg-[#101111] border-4 border-[#101111]   ">
-            <img src={`https://prod-image-cdn.tensor.trade/images/90x90/freeze=true/${img}`} alt="Frogana avatar" className="w-full h-full object-cover rounded-lg duration-300 rounded-   cursor-pointer " />
+            <img src={User?.profileImage?User?.profileImage:imageUrl} alt="Frogana avatar" className="w-full h-full object-cover rounded-lg duration-300 rounded-   cursor-pointer " />
           </div>
         </div>
         <div className=" w-full ">
@@ -38,18 +48,18 @@ export const NewNftCard = ({ name,owner, spread=42, img, buy=54, sell=23, listed
           </div>
           <div className=" flex mt-2 justify-between items-center">
             <div>
-              <h3 className=" font-cpmono-heading text-[#ffa600] capitalize cursor-pointer"> {name}</h3>
+              <h3 className=" font-cpmono-heading text-[#ffa600] capitalize cursor-pointer"> {metadata.name}</h3>
               <div className=" flex items-center gap-1">
               <OwnerNameSvg className=""/>
               {/* <Link to={"/profile/alex-jane"}> */}
-              <p className=" font-cpmono-heading text-xs text-gray-500 cursor-pointer capitalize truncate w-32 ">{owner}</p>
+              <p className=" font-cpmono-heading text-xs text-gray-500 cursor-pointer capitalize truncate w-32 ">{User?.username?User.username:creator}</p>
               {/* </Link> */}
               </div>
             </div>
             <div className="font-cpmono-heading capitalize flex gap-3 pr-4 font-thin">
-              <h3 className=" neon-minted text-[#5d9eff] bg-black p-1 rounded-md px-2 text-sm"> Minting:2K </h3>
-              <h3 className=" neon-listed text-[#ff69b4] bg-black p-1 rounded-md px-2 text-sm"> Listed:{listedpercent}% </h3>
-              <h3 className=" neon-mcap text-[#a855f7] bg-black p-1 rounded-md px-2 text-sm "> Mcap:{Mcap} </h3>
+              <h3 className=" neon-minted text-[#5d9eff] bg-black p-1 rounded-md px-2 text-sm"> Mints:2K </h3>
+              {/* <h3 className=" neon-listed text-[#ff69b4] bg-black p-1 rounded-md px-2 text-sm"> Listed:{listedpercent}% </h3>
+              <h3 className=" neon-mcap text-[#a855f7] bg-black p-1 rounded-md px-2 text-sm "> Mcap:{Mcap} </h3> */}
 
             </div>
           </div>
@@ -65,21 +75,60 @@ export const NewNftCard = ({ name,owner, spread=42, img, buy=54, sell=23, listed
             {/* content */}
             <div className=" mt-5 px-4">
               <div>
-              <img src="https://pub-695760ce26624d30a971e2238b643716.r2.dev/Screenshot%202024-10-31%20041722.png" alt="" className=" rounded-xl" />
+              <img src={imageUrl}  alt="" className=" aspect-square rounded-xl" />
               </div>
 
             <div className=" mt-5 flex justify-between font-cpmono-normal text-white">
               <div className=" flex gap-3">
+                {/* <p className=" bg-zinc-800 px-3 py-[6px] rounded-full ">
+                  <ShareSvg  className=" w-[19px] inline" /> {124}
+                </p> */}
                 <p className=" bg-zinc-800 px-3 py-[6px] rounded-full ">
-                  <ShareSvg  className=" w-[19px] inline" /> 124
-                </p>
-                <p className=" bg-zinc-800 px-3 py-[6px] rounded-full ">
-                  <MessageSquare size={20} className=" inline" /> 534
+                  <MessageSquare size={20} className=" inline" /> { comments.length>0? comments.length: 0}
                 </p>
               </div>
               <div className=" flex gap-3">
-                <p className=" bg-zinc-800 px-3 py-[6px] rounded-full ">
-                  <Triangle size={16} strokeWidth={5} className=" neon-upvote inline font-extrabold" /> 1.2k  <Triangle  strokeWidth={5} size={16} className=" inline neon-downVote rotate-180" />
+                <p className=" bg-zinc-800 px-3 space-x-1 py-[6px] rounded-full ">
+                  <Triangle
+                  onClick={()=>{
+                    if(!wallet.publicKey){
+                      toast.warning("Please connect your wallet to use this functionality")
+                      return
+                    }
+                    if(upvotedNfts.has(id)){
+                      setNewUpvotes(upvotes)
+                    } else if(downvotedNfts.has(id)){
+                      setNewUpvotes(upvotes+1)
+                      setNewDownvotes(downvotes-1)
+                    } 
+                    else{
+                      setNewUpvotes(upvotes+1)
+                    }
+                    handleUpVotes(id)
+                  }}
+                  size={16} 
+                  strokeWidth={5} 
+                  className={` ${upvotedNfts.has(id)?" fill-all-nft-light":""} cursor-pointer hover:text-white transition-all duration-300  neon-upvote inline font-extrabold`} />
+                   <span className=" -ml-2">{newUpvotes<0?0:newUpvotes} </span> 
+                  <Triangle
+                  onClick={()=>
+                  {  if(!wallet.publicKey){
+                      toast.warning("Please connect your wallet to use this functionality")
+                      return
+                    }
+                    if(downvotedNfts.has(id)){
+                      setNewDownvotes(downvotes-1)
+                    } else if(upvotedNfts.has(id)){
+                      setNewDownvotes(downvotes)
+                      setNewUpvotes(upvotes)  
+                    }
+                     else{
+                      setNewDownvotes(downvotes+1)
+                    }
+                    handleDownVotes(id)
+                  }
+                  }
+                  strokeWidth={5} size={16} className={` ${downvotedNfts.has(id)?" fill-priceDown":""} cursor-pointer hover:text-white transition-all duration-300  neon-pink inline font-extrabold`} />
                 </p> 
               </div>
             </div>

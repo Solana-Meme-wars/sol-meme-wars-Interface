@@ -1,6 +1,6 @@
 // slices/userProfilesSlice.js
 import { createSlice } from '@reduxjs/toolkit'; 
-import { dummyHotNftType, dummyNftDataProps, dummyNftType, dummyRecentNftType, dummyTrendingNftType, dummyUserProfilesProps, dummyVisitedNftType } from '../../libs/types'; 
+import { dummyHotNftType, dummyNftDataProps, dummyNftToPostType, dummyNftType, dummyRecentNftType, dummyTrendingNftType, dummyUserProfilesProps, dummyVisitedNftType } from '../../libs/types'; 
  
 export type InitialStateType = {
   profiles: dummyUserProfilesProps,
@@ -10,6 +10,7 @@ export type InitialStateType = {
   trendingNft:dummyTrendingNftType[],
   recentNft:dummyRecentNftType[],
   nftData: dummyNftDataProps,
+  nftToPost:dummyNftToPostType[]
 } 
 
 const initialState:InitialStateType = {
@@ -20,6 +21,7 @@ const initialState:InitialStateType = {
   trendingNft:[]  ,
   recentNft: [],
   nftData:{},
+  nftToPost:[]
 };
 
 const dymmyDataSlice = createSlice({
@@ -27,6 +29,10 @@ const dymmyDataSlice = createSlice({
   initialState,
   reducers: {
     setProfiles(state, action) {
+      console.log("setting profiles....");
+      console.log(action);
+      
+      
       state.profiles = action.payload;
     },
     setNfts(state, action) {
@@ -47,8 +53,11 @@ const dymmyDataSlice = createSlice({
     setNftData(state, action) {
       state.nftData = action.payload;
     },
+    setNftToPost(state, action) {
+      state.nftToPost = action.payload;
+    },
   },
 });
 
-export const { setProfiles,  setNfts, setVisitedNft, setHotNfts,  setTrendingNft, setRecentNfts, setNftData } = dymmyDataSlice.actions;
+export const { setProfiles,  setNfts, setVisitedNft, setHotNfts,  setTrendingNft, setRecentNfts, setNftData,  setNftToPost } = dymmyDataSlice.actions;
 export default dymmyDataSlice.reducer;

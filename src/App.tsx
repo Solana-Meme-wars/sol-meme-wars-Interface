@@ -5,8 +5,8 @@ import './styles/App.css'
 import { PublicRoutes } from './Routes/PublicRoutes';
 import { useDispatch } from 'react-redux';   
 import { useEffect } from 'react'; 
-import { dummyHotNft, dummyNft, dummyNftData, dummyRecentNft, dummyTrendingNft, dummyUserProfiles, dummyVisitedNft } from './data/dummyData';
-import { setHotNfts, setNftData, setNfts, setProfiles, setRecentNfts, setTrendingNft, setVisitedNft } from './Redux/dummyData/dummyDataSlice';
+import { dummyHotNft, dummyNft, dummyNftData, dummyNftToPost, dummyRecentNft, dummyTrendingNft, dummyUserProfiles, dummyVisitedNft } from './data/dummyData';
+import { setHotNfts, setNftData, setNfts, setNftToPost, setProfiles, setRecentNfts, setTrendingNft, setVisitedNft } from './Redux/dummyData/dummyDataSlice';
 function App() { 
 
   const dispatch = useDispatch()
@@ -18,6 +18,7 @@ function App() {
     dispatch(setRecentNfts(dummyRecentNft))
     dispatch(setNftData(dummyNftData))
     dispatch(setProfiles(dummyUserProfiles))
+    dispatch(setNftToPost(dummyNftToPost))
   },[dispatch])
 
   return (

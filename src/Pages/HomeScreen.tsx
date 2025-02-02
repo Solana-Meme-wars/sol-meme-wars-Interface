@@ -1,13 +1,29 @@
   
+import { useDispatch } from 'react-redux'
+import { AppDispatch, } from '../Redux/store'
 import { LeftSection } from '../ScreenSections/HomeScreenSections/LeftSection'
 import { MidSection } from '../ScreenSections/HomeScreenSections/MidSection'
 import { RightSection } from '../ScreenSections/HomeScreenSections/RightSection' 
+import { useEffect } from 'react'
+import { useWallet } from '@solana/wallet-adapter-react'
+import { fetchCurrentProfile } from '../Redux/main Data/userProfileSlice'
 
 export const Home = ()=>{ 
+   const {publicKey} = useWallet()
+   const dispatch = useDispatch<AppDispatch>()
+  console.log("inside wallet");
+  
+         useEffect(()=>{
+           const getProfile = async()=>{ 
+            await dispatch(fetchCurrentProfile(publicKey?.toString()))
+           }
+           getProfile() 
+       },[publicKey])
+
   // const navigate = useNavigate()  
 
   // useEffect(()=>{
-  //   const token =  Cookies.get('NFTtoken')
+  //   const token =  get('NFTtoken')
   //   if(!token){
   //     navigate('/signup')
   //   }   

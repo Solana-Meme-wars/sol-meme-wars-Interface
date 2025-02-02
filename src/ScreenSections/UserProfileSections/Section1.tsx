@@ -1,36 +1,45 @@
-import { Link } from "react-router-dom"
+// import { a } from "react-router-dom"
 import { TiltArrow2 } from "../../assets/icons/TiltArrow2"
 import { useWallet } from "@solana/wallet-adapter-react"
+import { userProfilesProps } from "../../libs/types"
+import { formatDate } from "../NftPageSections/Section3"
+import { Link } from "react-router-dom"
+ 
 
-type trendingNftProps = {
-  nftName: string,
-  img: string,
-  listners: string,
-  mcap: string,
-  supply: string,
-  mints: string
-}
-
-
-export const Section1 = ({ userName, banner, profilePic, joined, trendingNftDetails }: { userName: string, banner: string, profilePic: string, joined: string, trendingNftDetails: trendingNftProps }) => {
+export const Section1 = ({ username, profileImage, createdAt, trendingNftDetails }: userProfilesProps) => {
+  const banner = Math.floor(Math.random() * 5) + 1;
+  trendingNftDetails = {
+    img:"https://arweave.net/E1AkEkxMT8Eieo8anjZwIPVCXtd1gAoVdsaeaqzWv-Q",
+    listners:"24",
+    mcap:"2",
+    mints:"30",
+    nftName:"Ayu Rug",
+    supply:"50"
+  }
+  //@ts-ignore
+  createdAt = formatDate(createdAt)
+  console.log("crated att ",createdAt);
+  
   const wallets = useWallet()
   console.log("wallets, ", wallets.publicKey?.toBase58());
   return (
     <section className=' w-full mt-[56px] text-white font-cpmono-heading'>
       <div className=" w-full">
-        <img src={banner} alt="" className=" w-full" />
+      <img src={`/images/banners/${banner}.png`} alt="" className=" w-full" />
       </div>
 
       <div className=" containers w-full">
         <div className=" flex justify-between w-full -mt-[80px]">
           <div className=" p-2 flex gap-3 items-end  ">
             <div className=" bg-black rounded-2xl ">
-              <img width={144} className=" max-w-full rounded-2xl p-[5px]" src={profilePic} alt="" />
+              <img width={144} className=" max-w-full rounded-2xl p-[5px]" 
+              //@ts-ignore
+              src={profileImage || "/profile images/ethan.png"} alt="" />
             </div>
             <div>
-              <h2 className=" capitalize text-[24px] leading-6 tracking-tighter ">{userName}</h2>
+              <h2 className=" capitalize text-[24px] leading-6 tracking-tighter ">{username || "Tony hunt"}</h2>
               <p className=" font-oxanium font-semibold text-orange text-[18px]">
-                Joined : <span className=" text-subtle3 inline">{joined}</span>
+                Joined : <span className=" text-subtle3 inline">{createdAt.includes('NaN')?"24 Dec 2024":createdAt}</span>
               </p>
             </div>
           </div>
@@ -42,14 +51,17 @@ export const Section1 = ({ userName, banner, profilePic, joined, trendingNftDeta
                 </h3>
               </div>
               <Link
-                to={`/nft/${trendingNftDetails.nftName.split(' ')[0].toLowerCase()}-${trendingNftDetails.nftName.split(' ')[1].toLowerCase()}`} className=" w-full"
+                to="/nft/3-ayu-rug"
+                // href={`/nft/${trendingNftDetails?.nftName.split(' ')[0].toLowerCase()}-${trendingNftDetails?.nftName.split(' ')[1].toLowerCase()}`} 
+
+                className=" w-full"
               >
                 <div className=" flex gap-2 justify-end items-center">
                   <div>
-                    <img width={34} className=" rounded-[3px]" src={trendingNftDetails.img} alt="" />
+                    <img width={34} className=" rounded-[3px]" src={trendingNftDetails?.img} alt="" />
                   </div>
                   <div className=" leading-4">
-                    <p className=" text-[15px] tracking-wide">{trendingNftDetails.nftName.split(' ')[0]} <br /> {trendingNftDetails.nftName.split(' ')[1]}</p>
+                    <p className=" text-[15px] tracking-wide">{trendingNftDetails?.nftName.split(' ')[0]} <br /> {trendingNftDetails?.nftName.split(' ')[1]}</p>
                   </div>
                 </div>
               </Link>
@@ -57,19 +69,19 @@ export const Section1 = ({ userName, banner, profilePic, joined, trendingNftDeta
             <div className=" text-subtle3 w-full flex justify-between">
               <div className=" ">
                 <p className="  font-oxanium font-semibold">
-                  Listners : <span className=" text-white">{trendingNftDetails.listners}</span>
+                  Listners : <span className=" text-white">{trendingNftDetails?.listners}</span>
                 </p>
                 <p className="      font-oxanium font-semibold">
-                  Mcap : <span className=" text-white">{trendingNftDetails.mcap}M</span>
+                  Mcap : <span className=" text-white">{trendingNftDetails?.mcap}M</span>
                 </p>
               </div>
               <div className=" flex gap-2 items-center">
                 <div className=" w-full">
                   <p className="     font-oxanium font-semibold">
-                    Supply : <span className=" text-white">{trendingNftDetails.supply}</span>
+                    Supply : <span className=" text-white">{trendingNftDetails?.supply}</span>
                   </p>
                   <p className=" text-right   font-oxanium font-semibold">
-                    Mints : <span className=" text-white">{trendingNftDetails.mints}</span>
+                    Mints : <span className=" text-white">{trendingNftDetails?.mints}</span>
                   </p>
                 </div>
               </div>

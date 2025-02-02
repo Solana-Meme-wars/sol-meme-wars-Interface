@@ -47,7 +47,10 @@ export default {
         "mcap":"#B580FF",
         "listed":"#FF80D4",
         "nav":"#A9ADB2",
-        "orange":"#FB933C"
+        "orange":"#FB933C",
+        "subtle":"#B4B4B4",
+        "subtle2":"#666666",
+        "subtle3":"#808080",
       },
       borderColor:{
         "primary":"#404040",
@@ -71,9 +74,14 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
+      textShadow: {
+        sm: '1px 1px 2px rgba(0, 0, 0, 0.5)',
+        lg: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+      },
     }, 
   },
   plugins: [
+    require('tailwindcss-textshadow'),
     function ({ addUtilities }) {
       addUtilities({
         '.text-priceUp': {
@@ -111,5 +119,6 @@ export default {
         },
       });
     },
+
   ],
 }
